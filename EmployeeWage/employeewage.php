@@ -7,23 +7,23 @@ class Employeewage
     public $empHours=0;
     public $empWage=0;
     public $partTime=1;
-    function welcome()
+    public function welcome()
     {
         echo "WELCOME TO EMPLOYEE WAGE PROGRAM \n";
     }
-    function random_number()
+    public function random_number()
     {
-        $this->empinput=rand(0,2);
+        return rand(0,2);
         
     }
-    function attendence()
+    public function attendence($random_number)
     {
-        if($this->empinput==$this->isPresent)
+        if($random_number==$this->isPresent)
         {
             echo "Employee is Present and Works FullTime \n";
             $this->empHours=8;
         }
-        elseif($this->partTime==$this->empinput)
+        elseif($random_number==$this->empinput)
         {
             echo "Employee Works for Part Time \n";
             $this->empHours=4;
@@ -37,6 +37,6 @@ class Employeewage
 }
 $obj=new Employeewage();
 $obj->welcome();
-$obj->random_number();
-$obj->attendence();
+$random_number=$obj->random_number();
+$obj->attendence($random_number);
 ?>
