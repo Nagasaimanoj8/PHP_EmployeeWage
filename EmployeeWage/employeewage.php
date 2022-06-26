@@ -2,27 +2,41 @@
 class Employeewage
 {
     public $empinput;
-    public $isPresent=1;
+    public $isPresent=2;
+    public $emphrs=0;
+    public $partTime=1;
+    public $empWage=0;
+    public $empRatePerHour=20;
     public function welcome()
     {
         echo "WELCOME TO EMPLOYEE WAGE PROGRAM \n";
     }
     public function random_number()
     {
-        return rand(0,1);
+        return rand(0,2);
         
     }
     public function attendence($random_number)
     {
-        if($random_number==$this->isPresent)
+        switch($random_number)
         {
-            echo "Employee is Present";
+            case 2:
+                $random_number==$this->isPresent;
+                echo "Employee is Present Work only For fullTime \n";   
+                $this->emphrs=8;
+                break;
+            case 1:
+                $random_number==$this->PartTime;
+                echo "Employee is Present Works For PartTime \n";
+                $this->emphrs=4;
+                break;
+            case 0;
+                echo "Employee is Absent \n";
+                break;
         }
-        else{
-            echo "Employee is Absent";
-        }
+        $this->empWage=$this->empRatePerHour*$this->emphrs;
+        echo "DailyWage:$this->empWage";
     }
-    
 }
 $obj=new Employeewage();
 $obj->welcome();
