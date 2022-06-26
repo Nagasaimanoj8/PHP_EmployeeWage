@@ -1,7 +1,7 @@
 <?php
 class Employeewage
 {
-    public $empinput;
+   
     public $isPresent=1;
     public function welcome()
     {
