@@ -18,18 +18,24 @@ class Employeewage
     }
     function attendence()
     {
+        switch($this->empinput){
+        case 1:
+                if($this->partTime==$this->empinput)
+                {
+                    echo "Employee Works for Part Time \n";
+                    $this->empHours=4;
+                }    
+                break;
+        case 2:
         if($this->empinput==$this->isPresent)
         {
             echo "Employee is Present and Works FullTime \n";
             $this->empHours=8;
         }
-        elseif($this->partTime==$this->empinput)
-        {
-            echo "Employee Works for Part Time \n";
-            $this->empHours=4;
-        }
-        else{
-            echo "Employee is Absent";
+        break;
+        default:
+            echo "Employee is Absent \n";
+            break;
        }
        $this->empWage=$this->emprateperHour*$this->empHours;
        echo "DailyWage:$this->empWage";
