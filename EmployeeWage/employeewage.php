@@ -1,7 +1,6 @@
 <?php
 class Employeewage
 {
-    public $empinput;
     public $isPresent=1;
     public $emprateperHour=20;
     public $empHours=0;
@@ -10,20 +9,20 @@ class Employeewage
     {
         echo "WELCOME TO EMPLOYEE WAGE PROGRAM \n";
     }
-    function random_number()
+     public function random_number()
     {
-        $this->empinput=rand(0,1);
+        return rand(0,1);
         
     }
-    function attendence()
+    public function Daily_Employee_Wage($random_number)
     {
-        if($this->empinput==$this->isPresent)
+        if($random_number==$this->isPresent)
         {
-            echo "Employee is Present";
+            echo "Employee is Present \n";
             $this->empHours=8;
         }
         else{
-            echo "Employee is Absent";
+            echo "Employee is Absent \n";
        }
        $this->empWage=$this->emprateperHour*$this->empHours;
        echo "DailyWage:$this->empWage";
@@ -32,6 +31,6 @@ class Employeewage
 }
 $obj=new Employeewage();
 $obj->welcome();
-$obj->random_number();
-$obj->attendence();
+$random=$obj->random_number();
+$obj->Daily_Employee_Wage($random);
 ?>
