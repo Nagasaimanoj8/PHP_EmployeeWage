@@ -1,11 +1,10 @@
 <?php
 class Employeewage
 {
-    public $empinput;
-    public $isPresent=2;
-    public $emphrs=0;
-    public $partTime=1;
-    public $empWage=0;
+    private $isPresent=2;
+    private $emphrs=0;
+    private $partTime=1;
+    private $empWage=0;
     public $empRatePerHour=20;
     public $totalWage=0;
     public $emp_Days_PerMonth=20;
