@@ -7,6 +7,8 @@ class Employeewage
     public $partTime=1;
     public $empWage=0;
     public $empRatePerHour=20;
+    public $totalWage=0;
+    public $emp_Days_PerMonth=20;
     public function welcome()
     {
         echo "WELCOME TO EMPLOYEE WAGE PROGRAM \n";
@@ -17,7 +19,7 @@ class Employeewage
         
     }
     public function attendence($random_number)
-    {
+    { 
         switch($random_number)
         {
             case 2:
@@ -26,7 +28,7 @@ class Employeewage
                 $this->emphrs=8;
                 break;
             case 1:
-                $random_number==$this->PartTime;
+                $random_number==$this->partTime;
                 echo "Employee is Present Works For PartTime \n";
                 $this->emphrs=4;
                 break;
@@ -35,11 +37,18 @@ class Employeewage
                 break;
         }
         $this->empWage=$this->empRatePerHour*$this->emphrs;
-        echo "DailyWage:$this->empWage";
+        echo "DailyWage:$this->empWage \n";
+        $this->totalWage+=$this->empWage;
     }
 }
 $obj=new Employeewage();
 $obj->welcome();
+$day=1;
+while($day<=$obj->emp_Days_PerMonth)
+{
 $random_number=$obj->random_number();
 $obj->attendence($random_number);
+$day++;
+}
+echo " Total Employee Wage in Month is:".$obj->totalWage;
 ?>
